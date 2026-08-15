@@ -7,7 +7,7 @@ CSV_PATH = r"D:\OneDrive - unibuc.ro\Desktop\vat-identifier-discovery\BasicCompa
 #
 # print("Column names:")
 # for name in sample.columns:
-#     print(" ["+name+"]")
+#     print(" ["+name+"] ")
 
 COLUMNS=["CompanyNumber", "Accounts.AccountCategory", "RegAddress.Postcode"]
 
