@@ -1,0 +1,30 @@
+HMRC VAT check API probe
+run at: 2026-08-16T20:14:41.304128
+test VRN: 123456782  (checksum-valid, not a real company)
+
+============================================================
+attempt: v1_no_accept_header
+GET https://api.service.hmrc.gov.uk/organisations/vat/check-vat-number/lookup/123456782
+request headers: {}
+status code: 404
+response headers: {'Content-Type': 'application/json', 'Content-Length': '121', 'Connection': 'keep-alive', 'Date': 'Sun, 16 Aug 2026 17:14:40 GMT', 'Cache-Control': 'no-cache', 'Strict-Transport-Security': 'max-age=31536000;', 'Content-Security-Policy': "default-src 'self'", 'X-Cache': 'Error from cloudfront', 'Via': '1.1 0e6732773836057e0888bb24edf9d28e.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'OTP50-P3', 'X-Amz-Cf-Id': 'GtYydxkSwzCSgrlE99BqmK4AwBhOJ0XL2LGcu2ufB5WR3OnhAJwXlw=='}
+body:
+{"code": "MATCHING_RESOURCE_NOT_FOUND", "message": "A resource with the name in the request can not be found in the API"}
+
+============================================================
+attempt: v1_explicit_accept_header
+GET https://api.service.hmrc.gov.uk/organisations/vat/check-vat-number/lookup/123456782
+request headers: {'Accept': 'application/vnd.hmrc.1.0+json'}
+status code: 404
+response headers: {'Content-Type': 'application/json', 'Content-Length': '121', 'Connection': 'keep-alive', 'Date': 'Sun, 16 Aug 2026 17:14:40 GMT', 'Cache-Control': 'no-cache', 'Strict-Transport-Security': 'max-age=31536000;', 'Content-Security-Policy': "default-src 'self'", 'X-Cache': 'Error from cloudfront', 'Via': '1.1 0e6732773836057e0888bb24edf9d28e.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'OTP50-P3', 'X-Amz-Cf-Id': 'iMeLfB3JJmfweSpqhwjZKxyBn_tmkLNl681_2-4r0s1vtAdtrCyB3g=='}
+body:
+{"code": "MATCHING_RESOURCE_NOT_FOUND", "message": "A resource with the name in the request can not be found in the API"}
+
+============================================================
+attempt: v2_accept_header
+GET https://api.service.hmrc.gov.uk/organisations/vat/check-vat-number/lookup/123456782
+request headers: {'Accept': 'application/vnd.hmrc.2.0+json'}
+status code: 401
+response headers: {'Content-Type': 'application/json', 'Content-Length': '88', 'Connection': 'keep-alive', 'Date': 'Sun, 16 Aug 2026 17:14:40 GMT', 'Content-Security-Policy': "default-src 'self'", 'Www-Authenticate': 'Bearer realm="HMRC API Platform"', 'Strict-Transport-Security': 'max-age=31536000;', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 2f8eff522cfd61ef00a0393497536386.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'OTP50-P3', 'X-Amz-Cf-Id': 'NuYDyx9gum4FvREzixLqlzLG4kP6NMNr9g40tAg4XDNZRao35yI7eg=='}
+body:
+{"code": "MISSING_CREDENTIALS", "message": "Authentication information is not provided"}
