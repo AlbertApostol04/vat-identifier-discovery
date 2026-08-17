@@ -1,0 +1,4 @@
+company_number,company_name,ch_previous_name,ch_postcode,postcode_company_count,stratum,domain,vat_candidate,company_number_on_site,hmrc_valid,hmrc_name,hmrc_postcode,checked_at
+03047290,CERTIKIN INTERNATIONAL LIMITED,,OX29 0AX,9,trading,certikininternational.co.uk,630968620,True,True,CERTIKIN INTERNATIONAL LTD,OX29 0AX,2026-08-16T20:03
+11498172,ENVIRO CLEAN GROUP LTD,ENVIRO CLEAN NORTH EAST LTD,CM15 9SG,127,trading,enviro-clean.co.uk,339217984,True,True,ENVIRO CLEAN GROUP LTD,DA9 9UZ,2026-08-16T20:04
+11147020,HIGH LEVEL LIMITED,,GU21 2EP,171,all,highlevel.co.uk,413473374,False,True,HIGH LEVEL PHOTOGRAPHY LTD,KT11 2SF,2026-08-16T20:05
