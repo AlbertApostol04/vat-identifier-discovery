@@ -266,11 +266,15 @@ filtrul ieftin si local inaintea celui scump si remote.
 Predictie inainte de rulare: ma astept la o rata de confirmare mica, undeva sub 25%, pentru ca multe firme mici din registru probabil nu au deloc site.
 Ma astept ca `no_dns` sa fie cel mai frecvent rezultat.
 
-REZULTATE (de completat dupa rulare):
-  outcome:            found ___ | no_match ___ | no_http ___ | no_dns ___
-  matched_by:         company_number ___ | company_name ___
-  crosstab pe strat:  ___
-  timp:               ___ min pentru ___ companii
+REZULTATE (dupa rulare):
+  outcome:     found 30 | no_match 52 | no_http 14 | no_dns 54
+  matched_by:  company_number 5 | company_name 25
+  crosstab:    all 13/75 (17,3%) | trading 17/75 (22,7%)
+  timp:        8,6 min pentru 150 de companii (3,44 s/companie)
+
+Predictia s-a confirmat: diferenta intre straturi +5,3 pp, eroare standard
+6,5 pp, z = 0,82 -> nesemnificativa. Factorul limitant e disponibilitatea
+website-ului, nu inregistrarea la TVA.
 
 
 Pe primele 20: 0 potriviri prin numarul de inregistrare, 3 prin nume.
@@ -297,7 +301,7 @@ La 3.547.675 companii activr:
 Ce se rupe primul: NU crawling-ul, ci DNS-ul. Niciun resolver public nu accepta 21M de interogari, te limiteaza sau te blocheaza in cateva ore.
 Ar fi nevoie de resolver recursiv propriu, cu cache. E o cerinta de infrastructura pe care abordarea "as folosi un crawler distribuit" o rateaza.
 
-Al doilea lucru care se rupe: ~45% din companii n-au niciun domeniu carerezolva. Pentru ele nu e o problema de buget, nu exista ce crawla. Orice
+Al doilea lucru care se rupe: 36% din companii n-au niciun domeniu care rezolva (54 din 150, masurat). Pentru ele nu e o problema de buget, nu exista ce crawla. Orice suma cheltuita pe crawling se loveste de plafonul asta.
 
 
 
@@ -316,7 +320,7 @@ Nu exista o cale directa nume_companie -> domeniu.
 Ar fi nevoie de cautare full-text peste petabytes, ceea ce depaseste un laptop si oricum ar costa mai mult decat un API de cautare comercial.
 
 Concluzie: Common Crawl e util la pasul 3 (daca am deja domeniile, pot lua paginile din corpus in loc sa le descarc), dar nu rezolva pasul 2, care e blocajul real. Nu am investit timp in el.
-suma cheltuita pe crawling se loveste de plafonul asta.
+
 
 
 
@@ -469,7 +473,7 @@ Fix aplicat: elimin blocurile script/style inainte de tag-uri.
 
 Trei candidati verificati manual la checker-ul HMRC:
 
-  630968620 -> CERTIKIM INTERNATIONAL LTD, OX29 0AX
+  630968620 -> CERTIKIN INTERNATIONAL LTD, OX29 0AX
               CH: CERTIKIN INTERNATIONAL LIMITED, OX29 0AX (9 firme la cod)
               nume 1.000, cod postal identic -> CONFIRMED
 
@@ -511,7 +515,7 @@ Palnia completa, 150 de companii:
     3 cu VAT candidat
     2 CONFIRMED                   (1,3%)  [IC 95% Wilson:0,4–4,7%]
     1 MISMATCH
-  147 NOT_FOUNS
+  147 NOT_FOUND
 
 Fals pozitive: 1 din 3 candidati decisi. Cu n=3 raportez numarul, nu procentul -
 "33%" sugereaza o precizie pe care trei observatii nu o sustin.
